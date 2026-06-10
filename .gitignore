@@ -1,0 +1,18 @@
+#Entorno virtual
+venv/
+
+#Caché Fastf1
+cache/
+
+#Pruebas
+test_fastf1.py
+
+# Archivos temporales Python
+__pycache__/
+*.pyc
+
+# Archivos generados
+*.html
+
+# Configuración VS Code
+.vscode/
