@@ -3,9 +3,12 @@ venv/
 
 #Caché Fastf1
 cache/
+data/raw/
 
 #Pruebas
-test_fastf1.py
+test_openf1.py
+test_telemetry.py
+test_fast_laps.py
 
 # Archivos temporales Python
 __pycache__/
