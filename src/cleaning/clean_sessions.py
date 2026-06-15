@@ -41,7 +41,7 @@ def main() -> None:
     print("\nSesiones canceladas:")
     print(df_clean["is_cancelled"].value_counts())
 
-    print("\nCircuitos (location) tras normalizar:")
+    print("\nCircuitos tras normalizar:")
     print(sorted(df_clean["location"].unique()))
 
     df_clean.to_csv(OUTPUT, index=False)

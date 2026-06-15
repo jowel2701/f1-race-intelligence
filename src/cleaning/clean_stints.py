@@ -74,7 +74,7 @@ def main() -> None:
     print("\ncompound tras limpieza:")
     print(df_clean["compound"].value_counts())
 
-    print("\nCircuitos (location_name) tras normalizar:")
+    print("\nCircuitos tras normalizar:")
     print(sorted(df_clean["location_name"].unique()))
 
     df_clean.to_csv(OUTPUT, index=False)
