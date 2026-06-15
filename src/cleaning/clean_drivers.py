@@ -2,29 +2,27 @@ import os
 import pandas as pd
 from config import BASE_URL, MAX_RETRIES, RATE_LIMIT_WAIT_SECONDS, RAW_DIR, PROCESSED_DIR, REQUEST_DELAY_SECONDS, YEARS, SELECTED_SESSION_NAMES
 
-INPUT = os.path.join(RAW_DIR, "sessions_raw.csv")
-OUTPUT = os.path.join(PROCESSED_DIR, "sessions_clean.csv")
-
+INPUT = os.path.join(RAW_DIR, "drivers_raw.csv")
+OUTPUT = os.path.join(PROCESSED_DIR, "drivers_clean.csv")
 
 # Mapeo de naming
 LOCATION_MAP = {
     "Miami Gardens": "Miami",
     "Monte Carlo": "Monaco",
     "Yas Marina": "Yas Island",
-    "Bahrain": "Sakhir",
 }
 
 
-def clean_sessions(df: pd.DataFrame) -> pd.DataFrame:
+def clean_drivers(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     df = df.drop_duplicates()
 
-    # Normalizar nombres de circuito inconsistentes entre temporadas
-    df["location"] = df["location"].replace(LOCATION_MAP)
+    # Normalizar nombres de circuito
+    df["location_name"] = df["location_name"].replace(LOCATION_MAP)
 
     # Convertir fechas a datetime
-    df["date_start"] = pd.to_datetime(df["date_start"], utc=True)
-    df["date_end"] = pd.to_datetime(df["date_end"], utc=True)
+    df["date_start_session"] = pd.to_datetime(df["date_start_session"], utc=True)
+    df["date_end_session"] = pd.to_datetime(df["date_end_session"], utc=True)
 
     return df
 
@@ -35,14 +33,14 @@ def main() -> None:
     df = pd.read_csv(INPUT)
     print(f"Filas originales: {len(df)}")
 
-    df_clean = clean_sessions(df)
+    df_clean = clean_drivers(df)
     print(f"Filas tras limpieza: {len(df_clean)}")
 
-    print("\nSesiones canceladas:")
-    print(df_clean["is_cancelled"].value_counts())
+    print("\nValores nulos restantes:")
+    print(df_clean.isnull().sum()[df_clean.isnull().sum() > 0])
 
-    print("\nCircuitos (location) tras normalizar:")
-    print(sorted(df_clean["location"].unique()))
+    print("\nCircuitos (location_name) tras normalizar:")
+    print(sorted(df_clean["location_name"].unique()))
 
     df_clean.to_csv(OUTPUT, index=False)
     print(f"\nGuardado: {OUTPUT}")
