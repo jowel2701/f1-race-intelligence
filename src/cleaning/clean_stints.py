@@ -51,8 +51,8 @@ def clean_stints(df: pd.DataFrame, laps: pd.DataFrame) -> pd.DataFrame:
     # Tipos
     df["lap_start"] = df["lap_start"].astype("Int64")
     df["lap_end"] = df["lap_end"].astype("Int64")
-    df["date_start_session"] = pd.to_datetime(df["date_start_session"], utc=True)
-    df["date_end_session"] = pd.to_datetime(df["date_end_session"], utc=True)
+    df["date_start_session"] = pd.to_datetime(df["date_start_session"], utc=True, format="mixed")
+    df["date_end_session"] = pd.to_datetime(df["date_end_session"], utc=True, format="mixed")
 
     return df
 

@@ -23,9 +23,8 @@ def clean_sessions(df: pd.DataFrame) -> pd.DataFrame:
     df["location"] = df["location"].replace(LOCATION_MAP)
 
     # Convertir fechas a datetime
-    df["date_start"] = pd.to_datetime(df["date_start"], utc=True)
-    df["date_end"] = pd.to_datetime(df["date_end"], utc=True)
-
+    df["date_start"] = pd.to_datetime(df["date_start"], utc=True, format="mixed")
+    df["date_end"] = pd.to_datetime(df["date_end"], utc=True, format="mixed")
     return df
 
 

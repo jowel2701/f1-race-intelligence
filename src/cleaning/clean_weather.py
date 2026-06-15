@@ -25,7 +25,7 @@ def clean_weather(df: pd.DataFrame) -> pd.DataFrame:
     # Convertir fechas a datetime
     for col in ["date", "date_start_session", "date_end_session"]:
         if col in df.columns:
-            df[col] = pd.to_datetime(df[col], utc=True)
+            df[col] = pd.to_datetime(df[col], format="mixed", utc=True, errors="coerce")
 
     # rainfall: 0/1 -> booleano
     df["rainfall"] = df["rainfall"].astype(bool)

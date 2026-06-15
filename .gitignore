@@ -4,6 +4,7 @@ venv/
 #Caché Fastf1
 cache/
 data/raw/
+data/processed/
 
 #Pruebas
 test_openf1.py

@@ -24,7 +24,7 @@ def clean_location(df: pd.DataFrame) -> pd.DataFrame:
     # Convertir fechas a datetime
     for col in ["date", "lap_start"]:
         if col in df.columns:
-            df[col] = pd.to_datetime(df[col], utc=True)
+            df[col] = pd.to_datetime(df[col], format="mixed", utc=True, errors="coerce")
 
     return df
 
