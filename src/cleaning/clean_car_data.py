@@ -19,7 +19,6 @@ VALID_RANGES = {
     "rpm": (0, 15000),
     "n_gear": (0, 8),
     "throttle": (0, 100),
-    "drs": (0,14),
     "brake": (0, 100),
 }
 
@@ -33,14 +32,18 @@ def clean_car_data(df: pd.DataFrame) -> pd.DataFrame:
 
     # 104 = placeholder de la API cuando el coche está parado/sin dato
     # (speed=0, n_gear=0). Se recodifica a 0.
-    stopped_car = (df["speed"] == 0) & (df["rpm"] == 0) & (df["n_gear"] == 0)
+    # coche está en movimiento (saturación de sensor) -> 100 (máximo válido).
+    stopped_car = df["speed"] == 0
     df.loc[stopped_car & (df["throttle"] == 104), "throttle"] = 0
     df.loc[stopped_car & (df["brake"] == 104), "brake"] = 0
+
+    df.loc[~stopped_car & (df["throttle"] == 104), "throttle"] = 100
+    df.loc[~stopped_car & (df["brake"] == 104), "brake"] = 100
 
     # Convertir fechas a datetime
     for col in ["date", "lap_start"]:
         if col in df.columns:
-            df[col] = pd.to_datetime(df[col], utc=True)
+            df[col] = pd.to_datetime(df[col], format="mixed", utc=True, errors="coerce")
 
     return df
 
@@ -69,7 +72,11 @@ def main() -> None:
     validate_ranges(df_clean)
 
     print("\nValores nulos restantes:")
-    print(df_clean.isnull().sum()[df_clean.isnull().sum() > 0])
+    nulls = df_clean.isnull().sum()
+    print(nulls[nulls > 0])
+    if "drs" in df_clean.columns and df_clean["drs"].isnull().any():
+        pct = 100 * df_clean["drs"].isnull().mean()
+        print(f"  -> 'drs' nulo en {pct:.1f}% de filas ")
 
     print("\nCircuitos tras normalizar:")
     print(sorted(df_clean["location_name"].unique()))

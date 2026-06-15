@@ -27,7 +27,7 @@ def clean_race_control(df: pd.DataFrame) -> pd.DataFrame:
     # Convertir fechas a datetime
     for col in ["date", "date_start_session", "date_end_session"]:
         if col in df.columns:
-            df[col] = pd.to_datetime(df[col], utc=True)
+            df[col] = pd.to_datetime(df[col], format="mixed", utc=True, errors="coerce")
 
     # driver_number, lap_number, sector, qualifying_phase: float con NaN
     # -> Int64. Los nulos se mantienen, son legítimos

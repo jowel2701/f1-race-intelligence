@@ -21,8 +21,8 @@ def clean_drivers(df: pd.DataFrame) -> pd.DataFrame:
     df["location_name"] = df["location_name"].replace(LOCATION_MAP)
 
     # Convertir fechas a datetime
-    df["date_start_session"] = pd.to_datetime(df["date_start_session"], utc=True)
-    df["date_end_session"] = pd.to_datetime(df["date_end_session"], utc=True)
+    df["date_start_session"] = pd.to_datetime(df["date_start_session"], utc=True, format="mixed")
+    df["date_end_session"] = pd.to_datetime(df["date_end_session"], utc=True, format="mixed")
 
     return df
 
