@@ -1,58 +1,67 @@
 # 🏎️ F1 Race Intelligence Dashboard
 
-## 📖 Descripción
+F1 Race Intelligence Dashboard es una plataforma interactiva desarrollada con Python y Streamlit para el análisis avanzado de datos de Fórmula 1.
 
-F1 Race Intelligence Dashboard es una plataforma interactiva desarrollada en Python y Streamlit para el análisis avanzado de datos de Fórmula 1.
+El proyecto utiliza datos reales obtenidos desde la API OpenF1 para construir un entorno completo de análisis que incluye procesos ETL, análisis exploratorio de datos (EDA) y dashboards interactivos orientados al estudio del rendimiento de pilotos, estrategias de carrera, telemetría, condiciones de pista y simulación técnica en tiempo real.
 
-El proyecto integra información procedente de la API OpenF1 para construir un entorno completo de análisis compuesto por procesos ETL, exploración de datos (EDA) y dashboards interactivos orientados al estudio del rendimiento de pilotos, estrategias de carrera, telemetría y condiciones de pista.
-
-El objetivo principal es transformar grandes volúmenes de datos técnicos en visualizaciones intuitivas que permitan comprender cómo influyen distintos factores en el rendimiento de un monoplaza de Fórmula 1.
+Su objetivo es transformar grandes volúmenes de datos técnicos en visualizaciones claras e intuitivas que permitan entender cómo influyen distintos factores en el rendimiento de un monoplaza durante un fin de semana de competición.
 
 ---
 
-# 🎯 Objetivos
+## 🚀 Características principales
 
-* Obtener datos reales de Fórmula 1 mediante OpenF1.
-* Construir un pipeline ETL para la extracción, limpieza y transformación de datos.
-* Realizar análisis exploratorio de datos (EDA).
-* Desarrollar dashboards interactivos con Streamlit.
-* Analizar estrategias de carrera, telemetría y rendimiento de pilotos.
-* Implementar un módulo interactivo tipo ingeniería de pista mediante Engineer Mode.
-
----
-
-# 🛠️ Tecnologías utilizadas
-
-## Lenguaje
-
-* Python 3.10
-
-## Librerías principales
-
-* Pandas
-* NumPy
-* Plotly
-* Streamlit
-* OpenF1 API
-* Requests
-
-## Entorno
-
-* Visual Studio Code
-* Git
-* GitHub
+- Extracción de datos reales de Fórmula 1 desde OpenF1.
+- Pipeline ETL para limpieza, transformación y estructuración de datasets.
+- Análisis exploratorio de datos sobre vueltas, telemetría, clima y estrategia.
+- Dashboard interactivo en Streamlit con múltiples módulos especializados.
+- Comparación de pilotos, análisis de stint, trazado y condiciones de carrera.
+- Módulo avanzado **Engineer Mode** con diagnóstico visual del monoplaza.
+- Modelo predictivo de tiempo de vuelta basado en condiciones meteorológicas y desgaste de neumáticos.
+- Análisis del punto óptimo de frenada a partir de telemetría y posición en pista.
 
 ---
 
-# 🏗️ Arquitectura del proyecto
+## 🎯 Objetivos
 
-El proyecto sigue una arquitectura modular basada en:
+- Obtener datos reales de Fórmula 1 mediante OpenF1.
+- Construir un pipeline ETL robusto para extracción, limpieza y transformación.
+- Realizar análisis exploratorio para validar calidad y consistencia de los datos.
+- Desarrollar dashboards interactivos orientados a la toma de decisiones.
+- Analizar estrategias de carrera, degradación de neumáticos y rendimiento de pilotos.
+- Implementar un entorno tipo ingeniería de pista mediante **Engineer Mode**.
 
-* Extracción de datos
-* Limpieza y transformación
-* Almacenamiento
-* Análisis exploratorio
-* Visualización interactiva
+---
+
+## 🛠️ Tecnologías utilizadas
+
+### Lenguaje
+- Python 3.10
+
+### Librerías principales
+- Pandas
+- NumPy
+- Plotly
+- Streamlit
+- Scikit-learn
+- OpenF1 API
+- Requests
+
+### Entorno de desarrollo
+- Visual Studio Code
+- Git
+- GitHub
+
+---
+
+## 🏗️ Arquitectura del proyecto
+
+El proyecto sigue una arquitectura modular basada en varias etapas:
+
+- Extracción de datos
+- Limpieza y transformación
+- Almacenamiento
+- Análisis exploratorio
+- Visualización interactiva
 
 ```text
 OpenF1 API
@@ -78,209 +87,215 @@ Streamlit Dashboard
 
 ---
 
-# 📊 Datasets utilizados
+## 📊 Datasets utilizados
 
-## Drivers
-
+### Drivers
 Información de pilotos:
+- Nombre
+- Acrónimo
+- Equipo
+- Número de piloto
+- Nacionalidad
 
-* Nombre
-* Acrónimo
-* Equipo
-* Número de piloto
-* Nacionalidad
-
----
-
-## Sessions
-
+### Sessions
 Información de sesiones:
+- Carrera
+- Clasificación
+- Entrenamientos
+- Temporada
+- Circuito
 
-* Carrera
-* Clasificación
-* Entrenamientos
-* Temporada
-* Circuito
-
----
-
-## Laps
-
+### Laps
 Información por vuelta:
+- Tiempo de vuelta
+- Posición
+- Sectores
+- Número de vuelta
+- Flags de outlier y pit out lap
 
-* Tiempo de vuelta
-* Posición
-* Sectores
-* Compuesto
-* Stint
-
----
-
-## Stints
-
+### Stints
 Información estratégica:
+- Compuesto
+- Inicio del stint
+- Final del stint
+- Edad del neumático
+- Número de stint
 
-* Compuesto
-* Inicio de stint
-* Final de stint
-* Edad del neumático
-
----
-
-## Car Data
-
+### Car Data
 Telemetría:
+- Velocidad
+- RPM
+- Marcha
+- Throttle
+- Brake
+- DRS
 
-* Velocidad
-* RPM
-* Marcha
-* Throttle
-* Brake
-* DRS
-
----
-
-## Location
-
+### Location
 Posición GPS:
+- Coordenada X
+- Coordenada Y
 
-* Coordenada X
-* Coordenada Y
-
----
-
-## Weather
-
+### Weather
 Información meteorológica:
+- Temperatura ambiente
+- Temperatura de pista
+- Humedad
+- Lluvia
 
-* Temperatura ambiente
-* Temperatura de pista
-* Humedad
-* Viento
-* Lluvia
-
----
-
-## Race Control
-
+### Race Control
 Eventos FIA:
-
-* Safety Car
-* Virtual Safety Car
-* Yellow Flag
-* Track Limits
-* Incidentes
-
----
-
-# ⚙️ Proceso ETL
-
-Los datos son obtenidos mediante scripts independientes para cada endpoint de OpenF1.
-
-Posteriormente se realiza una fase de limpieza donde:
-
-* Se eliminan columnas irrelevantes.
-* Se normalizan nombres de columnas.
-* Se corrigen tipos de datos.
-* Se gestionan valores nulos.
-* Se validan rangos físicos de telemetría.
-* Se generan datasets optimizados para análisis.
-
-Los datos procesados se almacenan en formato CSV para facilitar su uso en análisis y visualización.
+- Safety Car
+- Virtual Safety Car
+- Yellow Flag
+- Track Limits
+- Incidentes
 
 ---
 
-# 📈 Análisis Exploratorio de Datos
+## ⚙️ Proceso ETL
 
-Se desarrolló un EDA completo para:
+Los datos se obtienen mediante scripts independientes para cada endpoint de OpenF1.
 
-* Distribución de velocidades.
-* Distribución de RPM.
-* Uso de marchas.
-* Uso de DRS.
-* Relación velocidad-RPM.
-* Frenadas.
-* Trazado de circuitos.
-* Comportamiento del acelerador.
+Posteriormente se realiza una fase de limpieza y transformación donde:
 
-El objetivo fue comprender la calidad de los datos y detectar patrones relevantes antes de construir los dashboards.
+- Se eliminan columnas irrelevantes.
+- Se normalizan nombres de columnas.
+- Se corrigen tipos de datos.
+- Se gestionan valores nulos.
+- Se validan rangos físicos de telemetría.
+- Se generan datasets optimizados para análisis y visualización.
+
+Finalmente, los datos procesados se almacenan en formato CSV para facilitar su uso posterior en notebooks, modelos y dashboards interactivos.
 
 ---
 
-# 🖥️ Dashboard Streamlit
+## 📈 Análisis Exploratorio de Datos
 
-El dashboard está compuesto por diferentes módulos especializados.
+Se desarrolló un EDA completo para estudiar:
 
-## Overview
+- Distribución de velocidades.
+- Distribución de RPM.
+- Uso de marchas.
+- Uso de DRS.
+- Relación velocidad-RPM.
+- Frenadas.
+- Trazado de circuitos.
+- Comportamiento del acelerador.
+- Consistencia de vueltas.
+- Calidad y cobertura de la telemetría por sesión.
 
+El objetivo del EDA fue comprender la estructura real de los datos, detectar anomalías y extraer patrones relevantes antes de construir la capa de visualización.
+
+Además, este estudio estadístico es la base que alimenta el modelo predictivo: a partir de los datos extraídos, limpiados y analizados, se construyen variables explicativas que representan el comportamiento real de la sesión. En otras palabras, el valor del modelo no está solo en el algoritmo, sino en el dato procesado que lo alimenta y que hace posible capturar patrones repetibles y útiles [web:83][web:85][web:87].
+
+---
+
+## 🖥️ Dashboard Streamlit
+
+El dashboard está organizado en diferentes módulos especializados:
+
+### Overview
 Resumen general de la sesión seleccionada.
 
----
+### Lap Analysis
+Análisis detallado de vueltas rápidas, sectores y rendimiento.
 
-## Lap Analysis
-
-Análisis detallado de vueltas rápidas y rendimiento.
-
----
-
-## Driver Comparison
-
+### Driver Comparison
 Comparación directa entre dos pilotos.
 
----
+### Circuit Intelligence
+Estudio técnico del circuito mediante telemetría y posición.
 
-## Circuit Intelligence
+### Strategy Room
+Análisis de estrategias de carrera, stints y gestión de neumáticos.
 
-Estudio técnico del circuito mediante telemetría.
+### Race Conditions
+Análisis de meteorología, evolución de pista y eventos FIA.
 
----
-
-## Strategy Room
-
-Análisis de estrategias de carrera y gestión de neumáticos.
-
----
-
-## Race Conditions
-
-Análisis de condiciones meteorológicas y eventos FIA.
-
----
-
-## Engineer Mode
-
+### Engineer Mode
 Módulo interactivo diseñado para simular una estación de ingeniería de pista.
 
 Permite:
 
-* Inspeccionar sistemas del monoplaza mediante una imagen interactiva.
-* Analizar motor, neumáticos, aerodinámica y DRS.
-* Visualizar métricas en tiempo real.
-* Reproducir telemetría mediante un sistema de replay sobre el trazado del circuito.
+- Inspeccionar sistemas del monoplaza mediante una imagen interactiva.
+- Analizar motor, neumáticos, aerodinámica, DRS y piloto.
+- Visualizar métricas técnicas por módulo.
+- Simular tiempos de vuelta bajo diferentes condiciones.
+- Analizar zonas de frenada y estimar distancias óptimas de frenado.
 
 ---
 
-# 🚀 Instalación
+## 🤖 Modelo predictivo de tiempo de vuelta
+
+Uno de los módulos más avanzados del proyecto es el sistema de predicción de vuelta integrado en **Engineer Mode** [file:1].
+
+Este módulo utiliza un pipeline de Machine Learning basado en Scikit-learn para estimar el tiempo de vuelta a partir de variables físicas y contextuales como temperatura ambiente, temperatura de pista, humedad, lluvia, compuesto de neumático y desgaste acumulado [file:1].
+
+### Variables utilizadas
+- Temperatura ambiente
+- Temperatura de pista
+- Humedad
+- Lluvia
+- Compuesto
+- Edad del neumático
+- Piloto
+- Degradación estimada
+- Diferencia respecto a la temperatura óptima del compuesto
+- Indicadores de crossover entre compuestos
+- Penalizaciones por uso incorrecto del neumático en lluvia
+
+### Enfoque del modelo
+- Filtrado de vueltas válidas
+- Asociación de stint y compuesto a cada vuelta
+- Unión temporal con datos meteorológicos
+- Ingeniería de variables físicas relacionadas con neumáticos
+- Entrenamiento de un modelo predictivo con Scikit-learn
+- Evaluación mediante métricas como `R²` y `MAE`
+- Simulación interactiva de condiciones para predecir tiempos de vuelta [file:1]
+
+### Relación entre datos y modelo
+El modelo se alimenta de los datos estadísticos y transformados del proyecto. Primero se extraen y limpian los datos reales de OpenF1, después se analizan sus distribuciones, rangos y relaciones, y finalmente esas variables derivadas se usan como entrada del modelo. Esto es importante porque el modelo no “inventa” conocimiento: aprende patrones a partir de los datos observados, y cuanto mejor representado esté el fenómeno en el CSV procesado, mejor capacidad tendrá para modelar la realidad [web:83][web:85][web:86].
+
+### Objetivo del módulo
+Este sistema no pretende sustituir un modelo profesional de simulación de equipo, sino ofrecer una aproximación interpretativa y visual al impacto de las condiciones de carrera sobre el rendimiento de vuelta [file:1].
+
+---
+
+## 🛑 Punto óptimo de frenada
+
+El dashboard también incorpora un módulo para estudiar el punto óptimo de frenada a partir de telemetría y posición del coche [file:1].
+
+Este análisis relaciona la velocidad de entrada en curva con la distancia recorrida hasta el inicio de la frenada real, detectando eventos de frenado sobre el trazado y ajustando un modelo lineal para estimar la distancia de frenada esperada en función de la velocidad de entrada [file:1].
+
+Esto permite:
+- Identificar frenadas críticas del circuito.
+- Visualizar zonas de frenado sobre el mapa del trazado.
+- Estimar la distancia óptima de frenada para una velocidad dada.
+- Analizar la exigencia técnica del circuito [file:1].
+
+---
+
+## 🚀 Instalación
 
 ```bash
 git clone https://github.com/usuario/f1-race-intelligence.git
-
 cd f1-race-intelligence
-
 pip install -r requirements.txt
 ```
 
 ---
 
-# ▶️ Ejecución
+## ▶️ Ejecución
 
 ```bash
-streamlit run app/streamlit_app.p
+streamlit run app/streamlit_app.py
 ```
+
+> Nota: en tu versión actual del README aparece `streamlit_app.p`, pero la extensión correcta debe ser `.py` [file:1].
 
 ---
 
-# 📁 Estructura del proyecto
+## 📁 Estructura del proyecto
 
 ```text
 f1-race-intelligence/
@@ -301,36 +316,34 @@ f1-race-intelligence/
 │   ├── dashboard/
 │
 ├── assets/
-│
 ├── requirements.txt
-│
 └── README.md
 ```
 
 ---
 
-# ⚠️ Limitaciones
+## ⚠️ Limitaciones
 
-* OpenF1 no proporciona telemetría completa para todas las sesiones.
-* Algunas sesiones únicamente contienen información de vueltas y resultados.
-* La telemetría detallada está limitada a determinadas combinaciones de piloto y sesión.
-
----
-
-# 🔮 Futuras mejoras
-
-* Integración con FastF1.
-* Predicción de estrategias mediante Machine Learning.
-* Simulación de paradas en boxes.
-* Comparación multi temporada.
-* Análisis de degradación de neumáticos.
-* Dashboard específico para clasificación.
-* Soporte para MotoGP.
+- OpenF1 no proporciona telemetría completa para todas las sesiones.
+- Algunas sesiones solo contienen información parcial de vueltas o resultados.
+- La telemetría detallada depende de la combinación piloto-sesión disponible en la API.
+- Los modelos predictivos son aproximaciones analíticas y no sustituyen herramientas profesionales de simulación de equipos de competición [file:1].
 
 ---
 
-# 👨‍💻 Autor
+## 🔮 Futuras mejoras
 
-Joel Ibarra
+- Integración con FastF1.
+- Predicción de estrategias mediante Machine Learning.
+- Simulación de paradas en boxes.
+- Comparación multi-temporada.
+- Análisis avanzado de degradación de neumáticos.
+- Dashboard específico para clasificación.
+- Mejora del modelo predictivo con validación cruzada e importancia de variables.
+- Soporte futuro para otras categorías como MotoGP.
 
-Proyecto desarrollado como trabajo final de análisis de datos y visualización aplicada a Fórmula 1.
+---
+
+## 👨‍💻 Autor
+
+**Joel Ibarra**

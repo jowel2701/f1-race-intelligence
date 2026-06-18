@@ -10,7 +10,7 @@ sys.path.append(str(ROOT_DIR))
 from src.dashboard.data_loader import load_all_data
 from src.dashboard.utils import global_style
 
-st.set_page_config(page_title="Gobernanza y Calidad del Dato", page_icon="⚠️", layout="wide")
+st.set_page_config(page_title="Gobernanza y Calidad del Dato", layout="wide")
 global_style()
 
 st.title("Gobernanza y Calidad del Dato")
