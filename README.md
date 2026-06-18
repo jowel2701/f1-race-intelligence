@@ -303,6 +303,7 @@ f1-race-intelligence/
 ├── app/
 │   ├── streamlit_app.py
 │   ├── pages/
+│   ├── assets/
 │
 ├── data/
 │   ├── raw/
@@ -311,11 +312,9 @@ f1-race-intelligence/
 ├── notebooks/
 │
 ├── src/
-│   ├── extraction/
 │   ├── cleaning/
 │   ├── dashboard/
 │
-├── assets/
 ├── requirements.txt
 └── README.md
 ```
