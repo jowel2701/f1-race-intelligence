@@ -254,7 +254,7 @@ Este módulo utiliza un pipeline de Machine Learning basado en Scikit-learn para
 - Simulación interactiva de condiciones para predecir tiempos de vuelta [file:1]
 
 ### Relación entre datos y modelo
-El modelo se alimenta de los datos estadísticos y transformados del proyecto. Primero se extraen y limpian los datos reales de OpenF1, después se analizan sus distribuciones, rangos y relaciones, y finalmente esas variables derivadas se usan como entrada del modelo. Esto es importante porque el modelo no “inventa” conocimiento: aprende patrones a partir de los datos observados, y cuanto mejor representado esté el fenómeno en el CSV procesado, mejor capacidad tendrá para modelar la realidad [web:83][web:85][web:86].
+El modelo se alimenta de los datos estadísticos y transformados del proyecto. Primero se extraen y limpian los datos reales de OpenF1, después se analizan sus distribuciones, rangos y relaciones, y finalmente esas variables derivadas se usan como entrada del modelo. Esto es importante porque el modelo no “inventa” conocimiento: aprende patrones a partir de los datos observados, y cuanto mejor representado esté el fenómeno en el CSV procesado, mejor capacidad tendrá para modelar la realidad.
 
 ### Objetivo del módulo
 Este sistema no pretende sustituir un modelo profesional de simulación de equipo, sino ofrecer una aproximación interpretativa y visual al impacto de las condiciones de carrera sobre el rendimiento de vuelta [file:1].
