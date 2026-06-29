@@ -1,0 +1,6 @@
+front tyres:  x=380, y=320
+rear tyres: x=685, y=262
+Engine: x=574 , y=230
+Aero: x=233, y=399
+DRS: x=648, y=198
+Driver: x=474, y=272
